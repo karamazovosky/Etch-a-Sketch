@@ -3,7 +3,13 @@ const container = document.getElementsByClassName("container");
 //     container[0].appendChild(div);
 // }
 for(let i=0; i<16; i++){
-    const div = document.createElement("div");
-    div.classList.add("grid");
-    container[0].appendChild(div)
+    const divgrid = document.createElement("div");
+    divgrid.classList.add("grid");
+    container[0].appendChild(divgrid)
+}
+let div = document.getElementsByClassName("grid");
+for(let i=0; i<div.length; i++){
+    div[i].addEventListener("mouseover", function(mouseHover) {
+        mouseHover.target.style.backgroundColor="black";
+    }, false)
 }
