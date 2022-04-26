@@ -21,7 +21,6 @@ body{
     grid-template-columns: auto;
 }
 .grid{
-    border: solid black 0.1px;
 }
 
 .buttons{

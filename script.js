@@ -45,6 +45,16 @@ function eraseDiv(){
     createGrid(gridNumber);
     listenchangeBG();
 }
-
+//-----Custom grid
+function customGrid(){
+    let x = prompt("Enter Custom Grid (ex: 4 for 4x4 Grid, max 100)");
+    if(!/^[0-9]/.test(x)) {
+        x = gridNumber;
+    }
+    gridNumber = x;
+    eraseDiv();
+}
 //event-listener for buttons
 buttonReset[0].addEventListener("click", eraseDiv)
+
+buttonCustom[0].addEventListener("click", customGrid)
