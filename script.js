@@ -1,15 +1,50 @@
 const container = document.getElementsByClassName("container");
+//----unused code
 // for(let i=0; i<16; i++){
 //     container[0].appendChild(div);
 // }
-for(let i=0; i<16; i++){
-    const divgrid = document.createElement("div");
-    divgrid.classList.add("grid");
-    container[0].appendChild(divgrid)
+let gridNumber = 4
+createGrid(gridNumber);
+listenchangeBG();
+
+//-----create grid/canvas, set as function so it can be reseted
+function createGrid(x) {
+    //change css property
+    let temp = "";
+    for(let i=0; i<x; i++){
+        temp += " auto"
+    }
+    container[0].style.gridTemplateColumns = temp;
+    //create sets of divs
+    for(let i=0; i<(x**2); i++){
+        const divgrid = document.createElement("div");
+        divgrid.classList.add("grid");
+        container[0].appendChild(divgrid)
+    }
 }
-let div = document.getElementsByClassName("grid");
-for(let i=0; i<div.length; i++){
-    div[i].addEventListener("mouseover", function(mouseHover) {
-        mouseHover.target.style.backgroundColor="black";
-    }, false)
+//------eventlistener to change bg color
+function listenchangeBG() {
+    let canvasDiv = document.getElementsByClassName("grid");
+    for(let i=0; i<canvasDiv.length; i++){
+        canvasDiv[i].addEventListener("mouseover", function(mouseHover) {
+            mouseHover.target.style.backgroundColor="black";
+        }, false)
+    }
 }
+
+
+//-----Select buttons
+let buttonCustom = document.getElementsByClassName("custom-grid");
+let buttonReset = document.getElementsByClassName("reset");
+
+//-----Reset divs function
+function eraseDiv(){   
+    while(container[0].hasChildNodes()) {
+        container[0].removeChild(container[0].firstChild);
+    }
+    createGrid(gridNumber);
+    listenchangeBG();
+}
+
+//event-listener for buttons
+buttonReset[0].addEventListener("click", eraseDiv)

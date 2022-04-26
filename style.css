@@ -1,12 +1,16 @@
 body{
     position: absolute;
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+    flex-direction: column;
     width: 100vw;
+    margin: 0;
+}
+
+.canvas {
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin-top: -245px;
+    height: 100vh;
 }
 .container{
     border: solid black 0.5px;
@@ -14,8 +18,20 @@ body{
     height: 400px;
     width: 400px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto;
 }
 .grid{
     border: solid black 0.1px;
+}
+
+.buttons{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.buttons button{
+    padding: 15px;
+    margin : 60px 10px 25px 10px;
 }
