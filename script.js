@@ -36,6 +36,8 @@ function listenchangeBG() {
 //-----Select buttons
 let buttonCustom = document.getElementsByClassName("custom-grid");
 let buttonReset = document.getElementsByClassName("reset");
+let buttonLine = document.getElementsByClassName("show-line");
+let gridLine = document.getElementsByClassName("grid")
 
 //-----Reset divs function
 function eraseDiv(){   
@@ -50,11 +52,34 @@ function customGrid(){
     let x = prompt("Enter Custom Grid (ex: 4 for 4x4 Grid, max 100)");
     if(!/^[0-9]/.test(x)) {
         x = gridNumber;
+    }else if(x > 100) {
+        x = 100;
     }
+    console.log(x);
     gridNumber = x;
     eraseDiv();
 }
+
+let hidelineTemp = false;
+//-----Hide grid line
+function hideLine(){
+    if(hidelineTemp === false) {
+        for(let i=0; i<gridLine.length; i++) {
+            gridLine[i].style.border = "solid 0.01px";
+        }
+        hidelineTemp = true;
+    }else if (hidelineTemp === true) {
+        for(let i=0; i<gridLine.length; i++) {
+            gridLine[i].style.border = "none";
+        }
+        hidelineTemp = false;
+    }
+    
+}
+
 //event-listener for buttons
 buttonReset[0].addEventListener("click", eraseDiv)
 
 buttonCustom[0].addEventListener("click", customGrid)
+
+buttonLine[0].addEventListener("click", hideLine)
