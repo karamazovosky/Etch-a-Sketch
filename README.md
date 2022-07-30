@@ -1,3 +1,3 @@
 # Etch-a-Sketch
 
-# https://karamazovosky.github.io/rock-paper-scissor/
+# https://karamazovosky.github.io/Etch-a-Sketch/
